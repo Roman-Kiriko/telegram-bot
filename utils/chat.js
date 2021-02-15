@@ -4,4 +4,12 @@ let isAdmin = (userId) => {
     return userId == data.admin;
 };
 
-module.exports = isAdmin
+function role(ctx) {
+    if (isAdmin(ctx.message.from.id)) {
+      ctx.scene.enter("chatAdmin");
+    } else {
+      ctx.scene.enter("chatUser");
+    }
+  }
+
+module.exports = {isAdmin, role}

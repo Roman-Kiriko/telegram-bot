@@ -1,6 +1,9 @@
 {
     "addres": "Адрес: г. Москва, Хибинский пр-д, 20 \nОфис: 410 \nТелефон: +7 (495) 032-04-46 \nВремя работы: ежедневно с 9:00 до 21:00 \nВыходные дни: 31 декабря - 3 января \nСайт: https://oknatent.ru \nEmail: sale@oknatent.ru",
     "welcome": "Доброго времени суток!",
-    "our_product": ["https://oknatent.ru/wp-content/uploads/2021/01/wallper-1.jpeg", "https://oknatent.ru/wp-content/uploads/2019/05/IMG-20190416-WA0012-400x533.jpg",  "https://oknatent.ru/wp-content/uploads/2021/01/wallper-2.jpg", "https://oknatent.ru/wp-content/uploads/2021/01/wallper-3.jpg", "https://oknatent.ru/wp-content/uploads/2021/01/wallper-4.jpg"],
-    "admin": 0
+    "softWindow": ["https://oknatent.ru/wp-content/uploads/2021/01/wallper-1.jpeg", "https://oknatent.ru/wp-content/uploads/2019/05/IMG-20190416-WA0012-400x533.jpg",  "https://oknatent.ru/wp-content/uploads/2021/01/wallper-2.jpg", "https://oknatent.ru/wp-content/uploads/2021/01/wallper-3.jpg", "https://oknatent.ru/wp-content/uploads/2021/01/wallper-4.jpg"],
+    "zavesy": ["https://oknatent.ru/wp-content/uploads/2020/01/plenochnye-zavesy-pvh.jpeg", "https://oknatent.ru/wp-content/uploads/2020/01/silikonovye-gibkie-zavesy-dlya-skladov.jpg",  "https://oknatent.ru/wp-content/uploads/2019/12/pvh-zavesy-na-avtomobil.jpg", "https://oknatent.ru/wp-content/uploads/2019/07/2.1-1.jpg"],
+    "tenty": ["https://oknatent.ru/wp-content/uploads/2020/12/2.jpg", "https://oknatent.ru/wp-content/uploads/2020/12/54e66dee-2e61-48c2-b643-877996f94004.jpg",  "https://oknatent.ru/wp-content/uploads/2020/11/img-besedka-1.jpg", "https://oknatent.ru/wp-content/uploads/2020/09/tenty-teplye-brezentovye.jpg"],
+    "shtory": ["https://oknatent.ru/wp-content/uploads/2019/07/2.2-7.jpg", "https://oknatent.ru/wp-content/uploads/2019/07/1-6.jpg",  "https://oknatent.ru/wp-content/uploads/2019/07/IMG_1254.jpg", "https://oknatent.ru/wp-content/uploads/2019/04/7821309_w640_h640_myagkie-okna-dlya.jpg"],
+    "admin": 1427821931
 }

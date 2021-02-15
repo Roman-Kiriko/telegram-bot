@@ -1,11 +1,9 @@
-const { Scenes, Markup, Telegraf } = require("telegraf");
+const { Scenes, Markup } = require("telegraf");
 const axios = require("axios");
 const data = require("../data.json");
 const fullName = require("../src/utils/fullName");
 
-const { enter, leave } = Scenes.Stage;
-
-const isAdmin = require("../utils/chat");
+const {isAdmin} = require("../utils/chat");
 
 class SceneGenerate {
   GenUserScene() {
@@ -41,12 +39,20 @@ class SceneGenerate {
         `Доброго времени суток, ${ctx.message.from.first_name}. Режим: Администратор. Пользователи ждут твоего ответа)`,
         Markup.removeKeyboard()
       );
-      try {
-        enter("chat");
-      } catch (e) {
-        console.log(e);
-      }
     });
+    messageAdmin.on('message', (ctx)=> {
+      if (
+        ctx.message.reply_to_message &&
+        ctx.message.reply_to_message.forward_from &&
+        isAdmin(ctx.message.from.id)
+      ) {
+        ctx.telegram.copyMessage(
+          ctx.message.reply_to_message.forward_from.id,
+          ctx.message.chat.id,
+          ctx.message.message_id
+        );
+      }
+    })
     return messageAdmin;
   }
   GenChatScene() {
@@ -63,24 +69,6 @@ class SceneGenerate {
       if (ctx.message.text === "Назад") {
         ctx.scene.enter("chatUser");
       } else {
-        // убеждаемся что это админ ответил на сообщение пользователя
-        if (
-          ctx.message.reply_to_message &&
-          ctx.message.reply_to_message.forward_from &&
-          isAdmin(ctx.message.from.id)
-        ) {
-          // отправляем копию пользователю
-          ctx.telegram.sendCopy(
-            ctx.message.reply_to_message.forward_from.id,
-            ctx.message
-          );
-          // ctx.telegram.copyMessage(
-          //   ctx.message.reply_to_message.forward_from.id,
-          //   ctx.message.chat.id,
-          //   ctx.message.message_id
-          // );
-        } else {
-          // перенаправляем админу
           let forwardToAdmin = async (ctx) => {
             try {
               await ctx.forwardMessage(data.admin, ctx.from.id, ctx.message.id);
@@ -94,7 +82,7 @@ class SceneGenerate {
           forwardToAdmin(ctx);
         }
       }
-    });
+    );
     return chatScene;
   }
 }
