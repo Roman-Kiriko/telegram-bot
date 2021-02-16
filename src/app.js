@@ -3,7 +3,6 @@ const express = require('express')
 const app = express()
 const PORT = 3000
 const mongoose = require('mongoose') 
-const morgan = require('morgan')
 const userRouters = require('./routes/user')
 
 
