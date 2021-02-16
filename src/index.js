@@ -100,6 +100,7 @@ bot.on("location", (ctx) => {
   });
 });
 
+
 bot.on("contact", (ctx) => {
   axios.put(process.env.BACKEND_URL + "/user", {
     id: ctx.message.from.id,
