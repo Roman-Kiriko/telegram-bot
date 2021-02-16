@@ -42,7 +42,6 @@ module.exports.updateUser = async function (req, res) {
   const candidate = await User.findOne({
     id: req.body.id,
   });
-  console.log(candidate);
   if (candidate) {
     if (req.body.phone) {
       await User.updateOne({

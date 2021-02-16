@@ -4,7 +4,7 @@
   "description": "This is telegram-bot for Okna-Alma",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start": "concurrently \"node src/app.js\" \"node src/index.js\""
   },
   "keywords": [
     "node",
@@ -25,5 +25,8 @@
     "telegraf": "^4.0.0",
     "telegraf-inline-menu": "^5.3.0",
     "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }
