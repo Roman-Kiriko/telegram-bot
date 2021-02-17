@@ -3,7 +3,7 @@ const axios = require("axios");
 const data = require("../data.json");
 const fullName = require("../src/utils/fullName");
 
-const {isAdmin} = require("../utils/chat");
+const { isAdmin } = require("../utils/chat");
 
 class SceneGenerate {
   GenUserScene() {
@@ -40,19 +40,19 @@ class SceneGenerate {
         Markup.removeKeyboard()
       );
     });
-    messageAdmin.on('message', (ctx)=> {
+    messageAdmin.on("message", async (ctx) => {
       if (
         ctx.message.reply_to_message &&
         ctx.message.reply_to_message.forward_from &&
         isAdmin(ctx.message.from.id)
       ) {
-        ctx.telegram.copyMessage(
+        await ctx.telegram.copyMessage(
           ctx.message.reply_to_message.forward_from.id,
           ctx.message.chat.id,
           ctx.message.message_id
         );
       }
-    })
+    });
     return messageAdmin;
   }
   GenChatScene() {
@@ -69,20 +69,19 @@ class SceneGenerate {
       if (ctx.message.text === "Назад") {
         ctx.scene.enter("chatUser");
       } else {
-          let forwardToAdmin = async (ctx) => {
-            try {
-              await ctx.forwardMessage(data.admin, ctx.from.id, ctx.message.id);
-            } catch (error) {
-              if (!error.response.ok) {
-                ctx.reply("Менеджера нет в сети!");
-              }
-              console.log(error);
+        let forwardToAdmin = async (ctx) => {
+          try {
+            await ctx.forwardMessage(data.admin, ctx.from.id, ctx.message.id);
+          } catch (error) {
+            if (!error.response.ok) {
+              ctx.reply("Менеджера нет в сети!");
             }
-          };
-          forwardToAdmin(ctx);
-        }
+            console.log(error);
+          }
+        };
+        forwardToAdmin(ctx);
       }
-    );
+    });
     return chatScene;
   }
 }

@@ -16,6 +16,7 @@ const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
 const stage = new Scenes.Stage([roleAdmin, roleUser, chat]);
 
+bot.use(Telegraf.log())
 bot.use(session());
 bot.use(stage.middleware());
 

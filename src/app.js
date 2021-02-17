@@ -20,4 +20,4 @@ mongoose.connect(process.env.MONGO_DB_URL, {
     .then(() => console.log('MongoDB connected'))
     .catch((e) => console.log(e))
 
-app.listen(PORT)  
+app.listen(PORT)
